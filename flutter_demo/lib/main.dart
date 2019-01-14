@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/z_z/main_page.dart';
 
 void main() => runApp(MyApp());
+//void main() {
+//  return runApp(MyApp());
+//}
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -29,8 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter;
 
-
-
+  // TODO: 改变状态
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -41,15 +44,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    print("initState");
+    _counter = 0;
+  }
 
-    setState(() {
-      _counter = 0;
-    });
-
+  //将并改变依赖关系 调用
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("didChangeDependencies");
   }
 
   @override
   Widget build(BuildContext context) {
+    print("build");
+
 
     return Scaffold(
       appBar: AppBar(
@@ -68,6 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlatButton(onPressed: (){
+              Navigator.push(context, new MaterialPageRoute(builder: (context) =>  AppPage()));
+            }, child: Text("按钮"))
           ],
         ),
       ),
@@ -78,86 +90,83 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-
-
-
-//生命周期
-class Animatontest extends StatefulWidget {
-  @override
-  _AnimatontestState createState() => _AnimatontestState();
-}
-
-class _AnimatontestState extends State<Animatontest> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-
-  @override
-  void initState() {
-    _controller = AnimationController(vsync: this);
-    super.initState();
-    ///1.当插入渲染树的时候调用，这个函数在生命周期中只调用一次。
-    ///这里可以做一些初始化工作，比如初始化State的变量。
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ///2.这个函数会紧跟在initState之后调用，
-    ///并且可以调用BuildContext.inheritFromWidgetOfExactType
-  }
 
 
   @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-
-  @override
-  void didUpdateWidget(Animatontest oldWidget) {
+  void didUpdateWidget(MyHomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    //3.当组件的状态改变的时候就会调用didUpdateWidget,比如调用了setState.
-    ///实际上这里flutter框架会创建一个新的Widget,绑定本State，并在这个函数中传递老的Widget。
-    ///这个函数一般用于比较新、老Widget，看看哪些属性改变了，并对State做一些调整。
-    ///需要注意的是，涉及到controller的变更，需要在这个函数中移除老的controller的监听，
-    ///并创建新controller的监听。
+    print("didUpdateWidget");
+
   }
+
 
   @override
   void deactivate() {
     super.deactivate();
-    //4.在dispose之前，会调用这个函数。
+    print("deactivate");
+
   }
 
 
   @override
   void dispose() {
-    _controller.dispose();
     super.dispose();
-    //5.一旦到这个阶段，组件就要被销毁了，这个函数一般会移除监听，清理环境。
+
+    print(dispose);
+
+
   }
-
 }
 
-//有状态Widget
-class StateFlulPage extends StatefulWidget {
+
+class AppPage extends StatefulWidget {
   @override
-  _StateFlulPageState createState() => _StateFlulPageState();
+  _AppPageState createState() => _AppPageState();
 }
 
-class _StateFlulPageState extends State<StateFlulPage> {
+class _AppPageState extends State<AppPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("标题"), ),
+      body: Container(color: Colors.white,),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+class a extends StatefulWidget {
+  @override
+  _aState createState() => _aState();
+}
+
+class _aState extends State<a> {
   @override
   Widget build(BuildContext context) {
     return Container();
   }
 }
 
-//无状态Widget
-class StateLessPage extends StatelessWidget {
+
+
+class b extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();
   }
 }
+
+
+
+
+
+
+
 
 

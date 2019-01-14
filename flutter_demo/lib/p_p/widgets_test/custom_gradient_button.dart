@@ -79,7 +79,7 @@ class GradientButton extends StatelessWidget {
       ),
       child: Material(
         type: MaterialType.transparency,
-        child: InkWell(
+        child: InkWell( ////INK可以实现装饰容器，实现矩形  设置背景色
           splashColor: colors.last,
           highlightColor: Colors.transparent,
           onTap: onTap,

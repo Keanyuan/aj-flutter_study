@@ -35,8 +35,8 @@ class _MyHomePageState extends State<TextDemo> {
             maxLines: 1,//行数
             overflow: TextOverflow.fade,//溢出显示。。。
             style: TextStyle(
-//              color: Colors.red,//文字颜色
-//              fontSize: 40.0, //字体
+              color: Colors.red,//文字颜色
+              fontSize: 40.0, //字体
 //              fontFamily: "Courier", //粗细
 //              background: new Paint()..color=Colors.yellow, //背景
 //              decoration: TextDecoration.lineThrough,//线条位置

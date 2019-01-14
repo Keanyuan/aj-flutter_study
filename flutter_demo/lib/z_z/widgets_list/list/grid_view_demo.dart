@@ -5,7 +5,7 @@ class GridViewWidgetDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _GridViewWidgetState();
+    return _GridViewGridDelegateState();
   }
 }
 //ListView
@@ -24,7 +24,7 @@ class _GridViewWidgetState extends State<GridViewWidgetDemo> {
       ),
       body: GridView.count(
         crossAxisCount: 3,
-        padding:const EdgeInsets.all(20.0),
+        padding:const EdgeInsets.all(10.0),
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0,
         children: <Widget>[
