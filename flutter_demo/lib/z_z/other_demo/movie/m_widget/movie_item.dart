@@ -1,12 +1,16 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/z_z/other_demo/movie/movies_detail_page.dart';
 import '../model/movie_model.dart';
 
 class MovieItemBig extends StatelessWidget {
 
   final Movie movie;
-  MovieItemBig(this.movie);
+  final GestureTapCallback onTap;
+  final GestureTapCallback collectionTap;
+
+  MovieItemBig(this.movie, {this.onTap, this.collectionTap});
 
 
   @override
@@ -14,12 +18,10 @@ class MovieItemBig extends StatelessWidget {
     // TODO: implement build
     return Container(
         color: Colors.black87,
-        child: Material(
+        child: Material(//也必须被Material所包裹。
           color: Colors.transparent,
-          child: InkWell(
-            onTap: (){
-              print("${movie.title}");
-            },
+          child: InkWell( //水波纹
+            onTap: this.onTap,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,12 +66,10 @@ class MovieItemBig extends StatelessWidget {
                                   ),
                                 ),
                                 GestureDetector(
-                                  onTap: () {
-                                    print("收藏");
-                                  },
+                                  onTap: this.collectionTap,
                                   child: Icon(
-                                    Icons.more_vert,
-                                    size: 20,
+                                    Icons.grade,
+                                    size: 22,
                                     color: movie.hasLiked
                                         ? Colors.red
                                         : Colors.white,
@@ -121,9 +121,15 @@ class MovieItemBig extends StatelessWidget {
 }
 
 
+
+
 class MovieItemSmall extends StatelessWidget  {
   final Movie movie;
-  MovieItemSmall(this.movie);
+  final GestureTapCallback onTap;
+  final GestureTapCallback collectionTap;
+
+
+  MovieItemSmall(this.movie,{this.onTap, this.collectionTap});
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +137,7 @@ class MovieItemSmall extends StatelessWidget  {
       return Material(
         color: Colors.grey,
         child: InkWell(
-          onTap: (){},
+          onTap: this.onTap,
           child: Stack(children: <Widget>[
             Positioned.fill(
               child: Hero(
@@ -176,11 +182,9 @@ class MovieItemSmall extends StatelessWidget  {
                                   ),
                                 ),
                                 GestureDetector(
-                                  onTap: () {
-                                    print("收藏");
-                                  },
+                                  onTap: this.collectionTap,
                                   child: Icon(
-                                    Icons.more_vert,
+                                    Icons.grade,
                                     size: 18,
                                     color: movie.hasLiked
                                         ? Colors.red
@@ -204,6 +208,7 @@ class MovieItemSmall extends StatelessWidget  {
       );
     });
   }
+
 }
 
 

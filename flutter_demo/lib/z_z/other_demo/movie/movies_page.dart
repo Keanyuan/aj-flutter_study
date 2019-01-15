@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_demo/z_z/other_demo/movie/m_widget/movie_item.dart';
 import 'package:flutter_demo/z_z/other_demo/movie/model/movie_model.dart';
+import 'package:flutter_demo/z_z/other_demo/movie/movies_detail_page.dart';
 import 'package:flutter_demo/z_z/other_demo/movie/services/real_api.dart';
 
 
@@ -90,12 +91,41 @@ class _MoviesState extends State<Movies> {
           }
           Movie movie = _movieModel.movies[index];
           if (((index + 1) % _childrenPerBlock) == 1) {
-            return MovieItemBig(movie);
+            return MovieItemBig(movie, onTap: (){
+              _onTap(context, index);
+            }, collectionTap: (){
+              _collectionTap(context, index);
+            },);
           } else {
-            return MovieItemSmall(movie);
+            return MovieItemSmall(movie, onTap: (){
+              _onTap(context, index);
+            }, collectionTap: (){
+              _collectionTap(context, index);
+            },);
           }
 
         },);
+  }
+
+
+  _collectionTap(BuildContext context, index){
+    setState(() {
+      _movieModel.movies[index].hasLiked = !_movieModel.movies[index].hasLiked;
+    });
+  }
+  _onTap(BuildContext context, index){
+    Loading.showLoadingDialog(context);
+    api.getMovie(_movieModel.movies[index].id).then((item){
+      Navigator.pop(context);
+      Navigator.of(context).push(new PageRouteBuilder(
+        opaque: true,
+        pageBuilder:
+            (BuildContext context, _, __) {
+          return MoviesDetailPage(movie: item,);
+        },
+      ));
+    });
+
   }
 }
 
@@ -108,7 +138,7 @@ class _MoviesGridDelegate extends SliverGridDelegate {
   _MoviesGridDelegate({@required this.totalCount});
 
   @override
-  SliverGridLayout getLayout(SliverConstraints constraints) {
+  SliverGridLayout getLayout(SliverConstraints constraints) {//拿到系统layout进行布局
     final double tileWidth = (constraints.crossAxisExtent - _spacing) / 2.0;
     const double tileHeight = 250;
     return _MoviesGridLayout(
@@ -149,6 +179,7 @@ class _MoviesGridLayout extends SliverGridLayout {
         <int>[0, 1, 1, 2, 2][index % _childrenPerBlock];
   }
 
+  /// 针对某个 scroll 的偏移量，最小的 index 是多少
   @override
   int getMinChildIndexForScrollOffset(double scrollOffset) {
     final nthRow = scrollOffset ~/ rowStride;
@@ -156,6 +187,7 @@ class _MoviesGridLayout extends SliverGridLayout {
         nthRow ~/ _rowsPerBlock * _childrenPerBlock;
   }
 
+  /// 针对某个 scroll 的偏移量，最大的 index 是多少
   @override
   int getMaxChildIndexForScrollOffset(double scrollOffset) {
     final nthRow = scrollOffset ~/ rowStride;
@@ -163,6 +195,7 @@ class _MoviesGridLayout extends SliverGridLayout {
         nthRow ~/ _rowsPerBlock * _childrenPerBlock;
   }
 
+  /// 给一个 index，告诉我它的 x,y,width,height
   @override
   SliverGridGeometry getGeometryForChildIndex(int index) {
     return SliverGridGeometry(
@@ -176,6 +209,8 @@ class _MoviesGridLayout extends SliverGridLayout {
     );
   }
 
+  /// 这些 childcount 一共能产生多大的偏移量
+  /// 知道了这个信息后，系统就可以展示滚动条的长短了
   @override
   double computeMaxScrollOffset(int childCount) {
     final offset = rowOfIndex(childCount - 1) * rowStride;

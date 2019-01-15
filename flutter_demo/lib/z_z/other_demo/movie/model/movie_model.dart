@@ -19,6 +19,10 @@ class Movie {
     Review(),
     Review(),
     Review(),
+    Review(),
+    Review(),
+    Review(),
+    Review(),
   ];
   List<Comment> comments = [
     Comment(),

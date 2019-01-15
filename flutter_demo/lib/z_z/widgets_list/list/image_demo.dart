@@ -29,7 +29,7 @@ class _MyHomePageState extends State<ImageDemo> {
 //            fit: BoxFit.fitWidth,//缩放模式
             color: Colors.yellow,//图片的混合色值
             colorBlendMode: BlendMode.darken, //混合模式
-//            repeat: ImageRepeat.repeat,//repeat图片重复
+            repeat: ImageRepeat.repeat,//repeat图片重复
 //            alignment: Alignment.center,//对齐方式
           ),
         ),

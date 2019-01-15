@@ -32,8 +32,8 @@ class _MyHomePageState extends State<RowDemo> {
       body: ListView(padding: EdgeInsets.all(10),children: <Widget>[
         RowWidget(
           height: 400,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,//表示子Widgets在纵轴方向的对齐方式
-          crossAxisAlignment: CrossAxisAlignment.start,//表示子Widgets在纵轴方向的对齐方式
+          mainAxisAlignment: MainAxisAlignment.start,//表示子Widgets在纵轴方向的对齐方式
+          crossAxisAlignment: CrossAxisAlignment.center,//表示子Widgets在纵轴方向的对齐方式
         ),
 
         CustomText("MainAxisAlignment", backgroundColor: Colors.white, color: Colors.red, fontSize: 26,),
