@@ -38,7 +38,7 @@ class _MyHomePageState extends State<StackDemo> {
         ),
         new Positioned( //定位布局
           left:20.0,
-          top:500.0,
+          top:300.0,
           child: new Container(
             decoration: new BoxDecoration(
               color: Colors.lightBlue,

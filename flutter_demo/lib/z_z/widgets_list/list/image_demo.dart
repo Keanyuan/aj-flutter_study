@@ -26,10 +26,10 @@ class _MyHomePageState extends State<ImageDemo> {
         Container(margin: EdgeInsets.only(top: 10.0),width: 200, height: 300,color: Colors.black12,
           child: Image.asset(
             "images/pic8.jpg",
-//            fit: BoxFit.fitWidth,//缩放模式
-            color: Colors.yellow,//图片的混合色值
+            fit: BoxFit.fitWidth,//缩放模式
+//            color: Colors.red,//图片的混合色值
             colorBlendMode: BlendMode.darken, //混合模式
-            repeat: ImageRepeat.repeat,//repeat图片重复
+//            repeat: ImageRepeat.repeat,//repeat图片重复
 //            alignment: Alignment.center,//对齐方式
           ),
         ),

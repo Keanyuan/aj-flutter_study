@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/z_z/main_page.dart';
 
-//void main() => runApp(MyApp());
-void main() {
-  return runApp(MyApp());
-}
+void main() => runApp(MyApp());
+//void main() {
+//  return runApp(MyApp());
+//}
 
 
 class MyApp extends StatelessWidget {
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        platform: TargetPlatform.iOS //滑动返回
       ),
       // MainPage
       home: MainPage(title: 'Flutter Demo Home Page'),
