@@ -5,7 +5,7 @@ class ListViewWidgetDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _ListViewState();
+    return _ListGenerateState();
   }
 }
 
@@ -89,7 +89,7 @@ class _ListViewState extends State<ListViewWidgetDemo> {
   @override
   Widget build(BuildContext context) {
 
-    var isVertical = true;
+    var isVertical = false;
 
     return new Scaffold(
       appBar: new AppBar(

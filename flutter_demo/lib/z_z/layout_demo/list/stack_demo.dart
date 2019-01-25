@@ -46,7 +46,7 @@ class _MyHomePageState extends State<StackDemo> {
             padding: EdgeInsets.all(5.0),
             child: new Text('这是Positioned', style: TextStyle(color: Colors.white, fontSize: 24),),
           ),
-        )
+        ),
       ],
     );
 

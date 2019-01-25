@@ -55,6 +55,7 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
                 maxLines: 1, //显示行数
                 onChanged: (value){ //监听输入框输入
                   print(value);
+                  _login();
                 },
                 onEditingComplete: (){ //当用户提交可编辑内容时调用
 //                  _nameFocus.unfocus();
@@ -159,7 +160,7 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
   }
 
   _login() async{
-    Fluttertoast.showToast(msg: "登录成功", gravity: ToastGravity.CENTER);
+    Fluttertoast.showToast(msg: "我是一个提示框，我是一个提示框", gravity: ToastGravity.BOTTOM, timeInSecForIos: 3);
 
   }
 }

@@ -31,7 +31,7 @@ class _MyHomePageState extends State<TextDemo> {
       body: Center(
         child: Container(width: 300.0, height: 100.0, color: Colors.black12,
           child:Text("Hello Flutter Hello Flutter Hello Flutter Hello Flutter ",
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.start,//字体对齐
             maxLines: 1,//行数
             overflow: TextOverflow.ellipsis,//溢出显示。。。
             style: TextStyle(

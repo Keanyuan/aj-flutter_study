@@ -36,8 +36,8 @@ class _MyHomePageState extends State<ImageDemo> {
 
         Container(margin: EdgeInsets.only(top: 10.0),width: 200, height: 300,color: Colors.black12,
           child: Image.network(
-            "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp",
-//            fit: BoxFit.fitWidth,//缩放模式
+            "http://pic1.nipic.com/2008-12-30/200812308231244_2.jpg",
+            fit: BoxFit.fitWidth,//缩放模式
 //            color: Colors.yellow,//图片的混合色值
 //            colorBlendMode: BlendMode.darken, //混合模式
 //            repeat: ImageRepeat.repeat,//repeat图片重复
