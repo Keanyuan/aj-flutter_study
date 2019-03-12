@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/z_z/main_page.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/bottom_sheet_fix.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
 
 void main() => runApp(MyApp());
 //void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS //滑动返回
       ),
       // MainPage
-      home: MyHomePagea(title: 'Flutter Demo Home Page'),
+      home: MainPage(title: "flutter demo",),
 //      routes: {
 //          "/": (_) => new WebViewScaffold(
 //            url: "https://www.google.com",
@@ -227,7 +227,7 @@ class _MyHomePageaState extends State<MyHomePagea> {
       _platformVersion = platformVersion;
     });
   }
-  final Completer<WebViewController> _controller = Completer<WebViewController>();
+//  final Completer<WebViewController> _controller = Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
@@ -238,16 +238,16 @@ class _MyHomePageaState extends State<MyHomePagea> {
       appBar: AppBar(title: Text("title"),),
     );
 
-    return Scaffold(
-      appBar: AppBar(title: Text("title"),),
-      body: WebView(
-        initialUrl: "http://mirror.anji-plus.com/appChart?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiZXhwIjoxNTUwOTcwNzkzfQ.RBzjN0-AsQ5c7jASPAWqUTyK69mEqYohxhhx_phZa5klRNBRAInHw_-BJZXP0qSuX12IxvTcQ5PmULxyf3hDwA&chartType=line&chartId=48&connectName=0",
-        javaScriptMode: JavaScriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
-      ),
-    );
+//    return Scaffold(
+//      appBar: AppBar(title: Text("title"),),
+//      body: WebView(
+//        initialUrl: "http://mirror.anji-plus.com/appChart?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiZXhwIjoxNTUwOTcwNzkzfQ.RBzjN0-AsQ5c7jASPAWqUTyK69mEqYohxhhx_phZa5klRNBRAInHw_-BJZXP0qSuX12IxvTcQ5PmULxyf3hDwA&chartType=line&chartId=48&connectName=0",
+//        javaScriptMode: JavaScriptMode.unrestricted,
+//        onWebViewCreated: (WebViewController webViewController) {
+//          _controller.complete(webViewController);
+//        },
+//      ),
+//    );
 
     return Scaffold(
       appBar: AppBar(title: Text('hhh')),

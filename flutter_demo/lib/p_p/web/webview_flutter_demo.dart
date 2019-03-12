@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
 
 
 class WebViewExample extends StatelessWidget {
@@ -11,10 +11,11 @@ class WebViewExample extends StatelessWidget {
         // This drop down menu demonstrates that Flutter widgets can be shown over the p_p.web view.
         actions: <Widget>[const SampleMenu()],
       ),
-      body: const WebView(
-        initialUrl: 'https://flutter.io',
-        javaScriptMode: JavaScriptMode.unrestricted,
-      ),
+      body: Container(),
+//      body: const WebView(
+//        initialUrl: 'https://flutter.io',
+//        javaScriptMode: JavaScriptMode.unrestricted,
+//      ),
     );
   }
 }

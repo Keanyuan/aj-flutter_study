@@ -6,6 +6,7 @@ import 'package:flutter_demo/z_z/widgets_list/list/container_demo.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/grid_view_demo.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/image_demo.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/list_view_demo.dart';
+import 'package:flutter_demo/z_z/widgets_list/list/table_demo.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/text_demo.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/textfields_focus_demo.dart';
 
@@ -39,21 +40,7 @@ class _MyHomePageState extends State<WidgetsListDemo> {
   //new SwiperTController()
   @override
   Widget build(BuildContext context) {
-    buildList = [];
     controller = [];
-    buildList.addAll([
-      "Text",
-      "Container",
-      "Image",
-      "ListView",
-      "GridView",
-      "Button",
-      "input",
-      "Switch CheckBox",
-    ]);
-
-
-
     controller.addAll([
       TextDemo(),
       ContainerDemo(),
@@ -63,6 +50,7 @@ class _MyHomePageState extends State<WidgetsListDemo> {
       RaisedButtonDemo(),
       TextFieldFocusDemo(),
       SwitchAndCheckBoxTestRoute(),
+      TabledDemo(),
     ]);
 
 //      CustomInputDemo(),
@@ -78,14 +66,14 @@ class _MyHomePageState extends State<WidgetsListDemo> {
             shape:  new RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0))),
             color: Colors.white,
             child: new ListTile(
-              title: new Text(buildList[index], style: TextStyle(color: Colors.grey),),
+              title: new Text(controller[index].toString(), style: TextStyle(color: Colors.grey),),
               onTap: (){
                 Navigator.push(context, new MaterialPageRoute(builder: (context) =>  controller[index]));
               },
             ),
           );
         },
-        itemCount: buildList.length,
+        itemCount: controller.length,
       ),
     );
   }

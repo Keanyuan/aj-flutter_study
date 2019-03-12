@@ -82,11 +82,6 @@ class _MyHomePageState extends State<MainPage> {
         },
         itemCount: buildList.length,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }

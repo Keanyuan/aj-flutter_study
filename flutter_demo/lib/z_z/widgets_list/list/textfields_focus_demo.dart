@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+
 /**
  * 实现原理：
  * 使用FocusNode获取当前textField焦点
@@ -16,8 +17,8 @@ class TextFieldFocusDemo extends StatefulWidget {
 }
 
 class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
-  TextEditingController _nameController,_pwController;
-  FocusNode _nameFocus,_pwFocus;
+  TextEditingController _nameController, _pwController;
+  FocusNode _nameFocus, _pwFocus;
   List<String> _colors = <String>['', 'red', 'green', 'blue', 'orange'];
   String _color = '';
 
@@ -32,51 +33,73 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Input"),
-        backgroundColor: Colors.green,),
+        backgroundColor: Colors.green,
+      ),
       body: SafeArea(
-        child: ListView(padding: EdgeInsets.all(16.0),
+        child: ListView(
+          padding: EdgeInsets.all(16.0),
           children: <Widget>[
             const SizedBox(height: 60.0),
             Material(
               borderRadius: BorderRadius.circular(10.0),
               child: TextField(
-                focusNode: _nameFocus, //控制键盘
-                controller: _nameController,//控制器，控制TextField文字
-                obscureText: false, ////是否隐藏输入
-                autofocus: false, //是否自动对焦
-                autocorrect: true, //是否自动更正 是否显示提示的字符串
-                enableInteractiveSelection: true, //是否可选中
-                textInputAction: TextInputAction.next, //return 按钮显示样式
+                focusNode: _nameFocus,
+                //控制键盘keyboardType
+                keyboardType: TextInputType.multiline,
+                controller: _nameController,
+                //控制器，控制TextField文字
+                obscureText: false,
+                ////是否隐藏输入
+                autofocus: false,
+                //是否自动对焦
+                autocorrect: true,
+                //是否自动更正 是否显示提示的字符串
+                enableInteractiveSelection: true,
+                //是否可选中
+                textInputAction: TextInputAction.next,
+                //return 按钮显示样式
 //                maxLength: 10, //显示字符串的最大长度
-                maxLines: 1, //显示行数
-                onChanged: (value){ //监听输入框输入
+                maxLines: null,
+                //显示行数
+                onChanged: (value) {
+                  //监听输入框输入
                   print(value);
                   _login();
                 },
-                onEditingComplete: (){ //当用户提交可编辑内容时调用
+                onEditingComplete: () {
+                  //当用户提交可编辑内容时调用
 //                  _nameFocus.unfocus();
-                print("onEditingComplete");
+                  print("onEditingComplete");
                 },
-                onSubmitted: (input){ //点击done按钮
+                onSubmitted: (input) {
+                  //点击done按钮
                   print(input);
                   _nameFocus.unfocus();
                   FocusScope.of(context).requestFocus(_pwFocus);
                 },
 //                keyboardType: TextInputType.number, //只显示数字键盘
                 decoration: InputDecoration(
-                  icon: Icon(Icons.person), //输入框左侧图标
-                  prefixIcon: Icon(Icons.skip_previous), //输入框内左侧图标
-                  suffixIcon: Icon(Icons.chevron_right), //输入框内右侧图标
-                  labelText: 'name', //提示符
-                  hintText: '请输入名字', //占位符
-                  helperText: '输入由6-12位字母、数字组成的用户名', //帮助
-                  border: OutlineInputBorder( //UnderlineInputBorder
+                  contentPadding: EdgeInsets.all(15),
+                  filled: true,
+                  icon: Icon(Icons.person),
+                  //输入框左侧图标
+                  prefixIcon: Icon(Icons.skip_previous),
+                  //输入框内左侧图标
+                  suffixIcon: Icon(Icons.chevron_right),
+                  //输入框内右侧图标
+                  labelText: 'name',
+                  //提示符
+                  hintText: '请输入名字',
+                  //占位符
+                  helperText: '输入由6-12位字母、数字组成的用户名',
+                  //帮助
+                  border: OutlineInputBorder(
+                    //UnderlineInputBorder
 //                    gapPadding: 4.0, //提示符占据的间隙
-                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                 ),
 //                textCapitalization: TextCapitalization.words, //首字母大写
@@ -88,20 +111,22 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
             const SizedBox(height: 20.0),
             Material(
               borderRadius: BorderRadius.circular(10.0),
-              child:AccentColorOverride(
+              child: AccentColorOverride(
                 color: Colors.red,
                 child: TextField(
                   focusNode: _pwFocus,
                   controller: _pwController,
                   obscureText: true,
-                  enableInteractiveSelection: false, //是否可选中
+                  enableInteractiveSelection: false,
+                  //是否可选中
                   textInputAction: TextInputAction.done,
-                  onSubmitted: (input){
+                  onSubmitted: (input) {
                     _pwFocus.unfocus();
                     //登陆请求
                     _login();
                   },
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0),
                     labelText: "password",
                   ),
                 ),
@@ -109,18 +134,18 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
             ),
             const SizedBox(height: 20.0),
 
-            Material(child:
-            CupertinoTextField(
+            Material(
+                child: CupertinoTextField(
               placeholder: '手机账号',
+              maxLines: 2,
               // cursorRadius: ,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                border: Border.all(
-                  color: Colors.red,
-                  style: BorderStyle.solid,
+                  borderRadius: BorderRadius.circular(20.0),
+                  border: Border.all(
+                    color: Colors.red,
+                    style: BorderStyle.solid,
 //                    width: 2,
-                )
-              ),
+                  )),
             )),
 //            const SizedBox(height: 20.0),
 //            new InputDecorator(
@@ -147,11 +172,34 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
 //                ),
 //              ),
 //            ),
-            SizedBox(height: 40.0,),
+            SizedBox(
+              height: 40.0,
+            ),
             ButtonBar(
               children: <Widget>[
-                RaisedButton(onPressed: _login,child: Text('login'),color: Colors.white,)
+                RaisedButton(
+                  onPressed: _login,
+                  child: Text('login'),
+                  color: Colors.white,
+                )
               ],
+            ),
+            Container(
+              color: Colors.red,
+              constraints: BoxConstraints(
+                  maxHeight: 144.0,
+                  maxWidth: _screenWidth(),
+                  minHeight: 48.0,
+                  minWidth: _screenWidth()),
+              padding: EdgeInsets.only(
+                  left: 16.0, right: 16.0, top: 8.0, bottom: 4.0),
+              child: TextField(
+                maxLines: null,
+                keyboardType: TextInputType.multiline,
+                decoration: InputDecoration.collapsed(
+                  hintText: "Write a comment",
+                ),
+              ),
             )
           ],
         ),
@@ -159,15 +207,21 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
     );
   }
 
-  _login() async{
-    Fluttertoast.showToast(msg: "我是一个提示框，我是一个提示框", gravity: ToastGravity.BOTTOM, timeInSecForIos: 3);
-
+  double _screenWidth() {
+    return MediaQuery.of(context).size.width;
   }
+
+  _login() async {
+    Fluttertoast.showToast(
+        msg: "我是一个提示框，我是一个提示框",
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIos: 3);
+  }
+
+
 }
 
-
 class AccentColorOverride extends StatelessWidget {
-
   const AccentColorOverride({Key key, this.color, this.child})
       : super(key: key);
 
