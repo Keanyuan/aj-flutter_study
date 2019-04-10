@@ -120,7 +120,6 @@ class _MyAppState extends State<IntroSliderDemo> {
 
       // Skip button
       renderSkipBtn: this.renderSkipBtn(),
-      onSkipPress: this.onSkipPress,
       colorSkipBtn: Color(0x33000000),
       highlightColorSkipBtn: Color(0xff000000),
 
@@ -198,7 +197,6 @@ class _SliderScreenState extends State<IntroSliderDemo> {
     return new IntroSlider(
       slides: this.slides,
       onDonePress: this.onDonePress,
-      onSkipPress: this.onSkipPress,
     );
   }
 }

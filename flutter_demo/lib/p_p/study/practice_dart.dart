@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import '../slider_screen/carousel_slider_demo.dart';
 import '../InnerWidget/WidgetSummary.dart';
 import '../bloc_demo/bolc_demo.dart';
 import '../bottom_appBar_demo/bottom_appBar_demo.dart';
@@ -38,10 +39,6 @@ class PracticeDartDemo extends StatefulWidget {
 
 class _MyHomePageState extends State<PracticeDartDemo> {
 
-
-
-  var buildList = [];
-
   List<Widget> controller = [];
 
   @override
@@ -55,35 +52,7 @@ class _MyHomePageState extends State<PracticeDartDemo> {
   //new SwiperTController()
   @override
   Widget build(BuildContext context) {
-    buildList = [];
     controller = [];
-    buildList.addAll([
-      "小部件的总结",
-      "轮播图",
-      "数据解析",
-      "SliverApp",
-      "BlocDemo",
-      "CupertinoDemo",
-      "webView",
-      "BottomAppBarDemo",
-      "ChipMoreDemo",
-      "CustomRouterTransitionPage",
-      "DraggableDemo",
-      "ExpansionDemo",
-      "FlutterBottomnavigationbar",
-      "FrostedGlassDemo高斯模糊",
-      "SourceHeroPage",
-      "IntroViewDemo",
-      "KeepAliveDemo",
-      "OverlayDemoList",
-      "IntroSliderDemo",
-      "SliverDemo",
-      "SpinkitDemo",
-      "WebViewExample",
-      "图表",
-
-    ]);
-
     controller.addAll([
       WidgetSummary(),
       SwiperTController(),
@@ -104,6 +73,7 @@ class _MyHomePageState extends State<PracticeDartDemo> {
       KeepAliveDemo(),
       OverlayDemoList(),
       IntroSliderDemo(),
+      CarouselSliderDemo(),
       SliverDemo(),
       SpinkitDemo(),
       WebViewExample(),
@@ -124,14 +94,14 @@ class _MyHomePageState extends State<PracticeDartDemo> {
             shape:  new RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0))),
             color: Colors.white,
             child: new ListTile(
-              title: new Text(buildList[index], style: TextStyle(color: Colors.grey),),
+              title: new Text('${controller[index].runtimeType}', style: TextStyle(color: Colors.grey),),
               onTap: (){
                 Navigator.push(context, new MaterialPageRoute(builder: (context) =>  controller[index]));
               },
             ),
           );
         },
-        itemCount: buildList.length,
+        itemCount: controller.length,
       ),
     );
   }
