@@ -7,6 +7,7 @@ import 'package:flutter_demo/z_z/main_page.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/bottom_sheet_fix.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
+import 'package:oktoast/oktoast.dart';
 
 void main() => runApp(MyApp());
 //void main() {
@@ -17,11 +18,11 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return OKToast(child: MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        platform: TargetPlatform.iOS //滑动返回
+          primarySwatch: Colors.blue,
+          platform: TargetPlatform.iOS //滑动返回
       ),
       // MainPage
       home: MainPage(title: "flutter demo",),
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
 //            ),
 //          )
 //        }
-    );
+    ));
   }
 }
 

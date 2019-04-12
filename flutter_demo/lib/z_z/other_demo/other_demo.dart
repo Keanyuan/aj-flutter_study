@@ -12,6 +12,7 @@ import 'package:flutter_demo/z_z/other_demo/list/custom_inoput/custom_input_demo
 import 'package:flutter_demo/z_z/other_demo/movie/movies_page.dart';
 import 'package:flutter_demo/z_z/other_demo/list/navigator_demo.dart';
 import 'package:flutter_demo/z_z/other_demo/list/sliver_appbar.dart';
+import 'package:flutter_demo/z_z/other_demo/toast/my_toast_demo.dart';
 
 
 class OtherListDemo extends StatefulWidget {
@@ -28,8 +29,6 @@ class _MyHomePageState extends State<OtherListDemo> {
 
 
 
-  var buildList = [];
-
   List<Widget> controller = [];
 
   @override
@@ -43,21 +42,8 @@ class _MyHomePageState extends State<OtherListDemo> {
   //new SwiperTController()
   @override
   Widget build(BuildContext context) {
-    buildList = [];
     controller = [];
-    buildList.addAll([
-      "navigator",
-      "AJSliverAppbar",
-      "MyCustomInput",
-      "MyCustomView",
-      "CustomImageView",
-      "MyCustomLabelView",
-      "CustomCircleProgress",
-      "TurnBoxRoute",
-      "CustomPaintRoute",
-      "GradientCircularProgressRoute",
-      "MoviesPage",
-    ]);
+
 
 
 
@@ -73,6 +59,7 @@ class _MyHomePageState extends State<OtherListDemo> {
       CustomPaintRoute(),
       GradientCircularProgressRoute(),
       MoviesPage(),
+      MyToastDemo(),
     ]);
 
 
@@ -88,14 +75,14 @@ class _MyHomePageState extends State<OtherListDemo> {
             shape:  new RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0))),
             color: Colors.white,
             child: new ListTile(
-              title: new Text(buildList[index], style: TextStyle(color: Colors.grey),),
+              title: new Text('${controller[index].runtimeType}', style: TextStyle(color: Colors.grey),),
               onTap: (){
                 Navigator.push(context, new MaterialPageRoute(builder: (context) =>  controller[index]));
               },
             ),
           );
         },
-        itemCount: buildList.length,
+        itemCount: controller.length,
       ),
     );
   }
