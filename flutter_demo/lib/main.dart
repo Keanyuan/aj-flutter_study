@@ -57,11 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  bool initData = true;
 
   @override
   void initState() {
     super.initState();
-    print("initState");
+    print("initState1");
     _counter = 0;
   }
 
@@ -69,12 +70,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    print("didChangeDependencies");
+    print("didChangeDependencies2");
+    if(initData = true ){
+      initData = false;
+
+      //数据请求
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build");
+    print("build3");
 
 
     return Scaffold(
@@ -112,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didUpdateWidget(MyHomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    print("didUpdateWidget");
+    print("didUpdateWidget4");
 
   }
 
@@ -120,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void deactivate() {
     super.deactivate();
-    print("deactivate");
+    print("deactivate5");
 
   }
 
