@@ -31,14 +31,14 @@ class _MyHomePageState extends State<CupertinoDemo> {
     buildList = [];
     controller = [];
     buildList.addAll([
-      "ListViewDemo",
+//      "ListViewDemo",
       "ListCupertinoPage",
       ]);
 
 
 
     controller.addAll([
-      ListViewDemo(),
+//      ListViewDemo(),
       ListCupertinoPage(),
       ]);
 

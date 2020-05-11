@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 
 class NavigatorDemo extends StatefulWidget {
@@ -59,7 +59,7 @@ class _NavigatorDemoState extends State<NavigatorDemo> {
                     var result= Navigator.push(context, new MaterialPageRoute(builder: (context) =>  NavigatorPage2()));
                     result.then((v){
 //                      Scaffold.of(context).showSnackBar(SnackBar(content:Text(' $v')));
-                      Fluttertoast.showToast(msg: " $v", gravity: ToastGravity.CENTER);
+//                      Fluttertoast.showToast(msg: " $v", gravity: ToastGravity.CENTER);
                     });
                     break;
                   case 2:

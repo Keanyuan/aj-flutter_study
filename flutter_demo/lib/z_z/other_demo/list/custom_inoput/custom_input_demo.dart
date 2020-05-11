@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/z_z/layout_demo/list/row_demo.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'pin_input_text_field.dart';
 
 class CustomInputDemo extends StatefulWidget {
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<CustomInputDemo> {
         PinInputTextField(
           onSubmit: (pin) {
             //Add submit action.
-            Fluttertoast.showToast(msg: "输入结果为：$pin", gravity: ToastGravity.CENTER, timeInSecForIos: 2);
+//            Fluttertoast.showToast(msg: "输入结果为：$pin", gravity: ToastGravity.CENTER, timeInSecForIos: 2);
 
           },
           pinLength: 4,     // The length of the pin

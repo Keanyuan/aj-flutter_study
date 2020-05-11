@@ -66,22 +66,45 @@ class CirclePainter extends CustomPainter {
   }
 }
 
-class ImageLoader {
-  static ui.AssetBundle getAssetBundle() => (ui.rootBundle != null)
-      ? ui.rootBundle
-      : new ui.NetworkAssetBundle(new Uri.directory(Uri.base.origin));
+//class ImageLoader {
+//  static ui.AssetBundle getAssetBundle() => (ui.rootBundle != null)
+//      ? ui.rootBundle
+//      : new ui.NetworkAssetBundle(new Uri.directory(Uri.base.origin));
+//
+//  static Future<flutterui.Image> load(String url) async {
+//    ui.ImageStream stream = new ui.AssetImage(url, bundle: getAssetBundle())
+//        .resolve(ui.ImageConfiguration.empty);
+//    Completer<flutterui.Image> completer = new Completer<flutterui.Image>();
+//    void listener(ui.ImageInfo frame, bool synchronousCall) {
+//      final flutterui.Image image = frame.image;
+//      completer.complete(image);
+//      stream.removeListener(listener);
+//    }
+//
+//    stream.addListener(listener);
+//    return completer.future;
+//  }
+//}
 
-  static Future<flutterui.Image> load(String url) async {
-    ui.ImageStream stream = new ui.AssetImage(url, bundle: getAssetBundle())
-        .resolve(ui.ImageConfiguration.empty);
-    Completer<flutterui.Image> completer = new Completer<flutterui.Image>();
-    void listener(ui.ImageInfo frame, bool synchronousCall) {
-      final flutterui.Image image = frame.image;
-      completer.complete(image);
-      stream.removeListener(listener);
-    }
+// Flutter 1.7.8使用
+ class ImageLoader {
+   static ui.AssetBundle getAssetBundle() => (ui.rootBundle != null)
+       ? ui.rootBundle
+       : new ui.NetworkAssetBundle(new Uri.directory(Uri.base.origin));
 
-    stream.addListener(listener);
-    return completer.future;
-  }
-}
+   static Future<flutterui.Image> load(String url) async {
+     ui.ImageStream stream = new ui.AssetImage(url, bundle: getAssetBundle())
+         .resolve(ui.ImageConfiguration.empty);
+     Completer<flutterui.Image> completer = new Completer<flutterui.Image>();
+     final listener = ImageStreamListener((ImageInfo info, bool synchronousCall){
+       final flutterui.Image image = info.image;
+       completer.complete(image);
+     });
+
+     stream.addListener(listener);
+     completer.future.then((_) {
+       stream.removeListener(listener);
+     });
+     return completer.future;
+   }
+ }

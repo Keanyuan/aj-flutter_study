@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
  * 对于最后一个TextField,直接解除focus并提交表单
  */
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 class TextFieldFocusDemo extends StatefulWidget {
   @override
@@ -212,10 +212,10 @@ class TextFieldFocusDemoState extends State<TextFieldFocusDemo> {
   }
 
   _login() async {
-    Fluttertoast.showToast(
-        msg: "我是一个提示框，我是一个提示框",
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIos: 3);
+//    Fluttertoast.showToast(
+//        msg: "我是一个提示框，我是一个提示框",
+//        gravity: ToastGravity.BOTTOM,
+//        timeInSecForIos: 3);
   }
 
 

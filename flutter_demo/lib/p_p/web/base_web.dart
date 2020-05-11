@@ -35,15 +35,15 @@ class _MyHomePageState extends State<WebBasePagea> {
     buildList = [];
     controller = [];
     buildList.addAll([
-      "ChartsWebPage",
-      "WebPageBaseController",
+//      "ChartsWebPage",
+//      "WebPageBaseController",
     ]);
 
 
 
     controller.addAll([
-      ChartsWebPage(),
-      WebPageBaseController(title: "echars", url: "https://www.baidu.com")
+//      ChartsWebPage(),
+//      WebPageBaseController(title: "echars", url: "https://www.baidu.com")
 
     ]);
 

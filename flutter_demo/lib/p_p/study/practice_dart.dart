@@ -56,7 +56,7 @@ class _MyHomePageState extends State<PracticeDartDemo> {
     controller.addAll([
       WidgetSummary(),
       SwiperTController(),
-      CheckSingPage(),
+//      CheckSingPage(),
       SliverApp(),
       BlocDemo(),
       CupertinoDemo(),
@@ -69,15 +69,15 @@ class _MyHomePageState extends State<PracticeDartDemo> {
       FlutterBottomnavigationbar(),
       FrostedGlassDemo(),
       SourceHeroPage(),
-      IntroViewDemo(),
+//      IntroViewDemo(),
       KeepAliveDemo(),
       OverlayDemoList(),
-      IntroSliderDemo(),
+//      IntroSliderDemo(),
       CarouselSliderDemo(),
       SliverDemo(),
       SpinkitDemo(),
       WebViewExample(),
-      FchartsBasePage(),
+//      FchartsBasePage(),
 
     ]);
 

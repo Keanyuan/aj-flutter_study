@@ -5,7 +5,7 @@ import 'package:aj_flutter_plugin/aj_flutter_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/z_z/main_page.dart';
 import 'package:flutter_demo/z_z/widgets_list/list/bottom_sheet_fix.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+//import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
 import 'package:oktoast/oktoast.dart';
 
@@ -238,12 +238,12 @@ class _MyHomePageaState extends State<MyHomePagea> {
 
   @override
   Widget build(BuildContext context) {
+//    return
 
-
-    return WebviewScaffold(
-      url: "http://mirror.anji-plus.com/appChart?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiZXhwIjoxNTUwOTcwNzkzfQ.RBzjN0-AsQ5c7jASPAWqUTyK69mEqYohxhhx_phZa5klRNBRAInHw_-BJZXP0qSuX12IxvTcQ5PmULxyf3hDwA&chartType=line&chartId=48&connectName=0",
-      appBar: AppBar(title: Text("title"),),
-    );
+//    return WebviewScaffold(
+//      url: "http://mirror.anji-plus.com/appChart?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiZXhwIjoxNTUwOTcwNzkzfQ.RBzjN0-AsQ5c7jASPAWqUTyK69mEqYohxhhx_phZa5klRNBRAInHw_-BJZXP0qSuX12IxvTcQ5PmULxyf3hDwA&chartType=line&chartId=48&connectName=0",
+//      appBar: AppBar(title: Text("title"),),
+//    );
 
 //    return Scaffold(
 //      appBar: AppBar(title: Text("title"),),
